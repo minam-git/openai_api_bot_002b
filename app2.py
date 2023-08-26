@@ -14,7 +14,7 @@ system_prompt = """
 """
 
 #chatbot_setting = st.secrets.AppSettings.chatbot_setting
-chatbot_setting = systme_prompt
+chatbot_setting = system_prompt
 
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state:
