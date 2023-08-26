@@ -56,9 +56,9 @@ def communicate():
 # ユーザーインターフェイスの構築
 #st.title("My AI Assistant")
 #st.write("ChatGPT APIを使ったチャットボットです。")
-typing_write("ChatGPTタロット占い", intervalTime=0.07, size=1)
+typing_write("ChatGPTタロット占い", intervalTime=0.05, size=1)
 
-user_input = st.text_input("占いたいことを入力してください。", key="user_input", on_change=communicate)
+user_input = st.text_input("占いたいことを入力して下さい。(プライベート情報の入力は禁止)", key="user_input", on_change=communicate)
 
 if st.session_state["messages"]:
     messages = st.session_state["messages"]
