@@ -23,14 +23,17 @@ if "messages" not in st.session_state:
         ]
 
 # 文字列を順次表示する st.write
-def typing_write( msgtext, intervalTime=0.1 ):
+def typing_write( msgtext, intervalTime=0.1, size=0 ):
     overWrite = st.empty()
 #    st.write("長さ", len(msgtext))
     for i in range(len(msgtext)+1):
         time.sleep(intervalTime)
         
         with overWrite.container():
-            st.write(msgtext[:i])
+            if size==1:
+                st.title(msgtext[:i])
+            else:
+                st.write(msgtext[:i])
             
 # チャットボットとやりとりする関数
 def communicate():
@@ -53,7 +56,7 @@ def communicate():
 # ユーザーインターフェイスの構築
 #st.title("My AI Assistant")
 #st.write("ChatGPT APIを使ったチャットボットです。")
-typing_write("ChatGPTタロット占い")
+typing_write("ChatGPTタロット占い", intervalTime=0.07, size=1)
 
 user_input = st.text_input("占いたいことを入力してください。", key="user_input", on_change=communicate)
 
