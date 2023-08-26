@@ -6,10 +6,20 @@ import time
 # Streamlit Community Cloudの「Secrets」からOpenAI API keyを取得
 openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 
+system_prompt = """
+このスレッドの全ての質問に対して以下のルールに厳格に従って答えてください。
+1. タロットカードの大アルカナをランダムに選択してください
+2. さらに、正位置と逆位置もランダムに選択してください。
+3. 質問に対して、1 と 2 でランダムに選ばれた内容を踏まえて回答してください。
+"""
+
+#chatbot_setting = st.secrets.AppSettings.chatbot_setting
+chatbot_setting = systme_prompt
+
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state:
     st.session_state["messages"] = [
-        {"role": "system", "content": st.secrets.AppSettings.chatbot_setting}
+        {"role": "system", "content": chatbot_setting}
         ]
 
 # 文字列を順次表示する st.write
