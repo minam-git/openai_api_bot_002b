@@ -63,9 +63,12 @@ user_input = st.text_input("占いたいことを入力してください。", k
 if st.session_state["messages"]:
     messages = st.session_state["messages"]
 
-    for message in reversed(messages[1:]):  # 直近のメッセージを上に
+    nQuery = int(len(messages)/2)    # Q&Aの数。
+    for i in range(nQuery):    # 直近のQ＆Aを上に
+      j = nQuery - i-1
+      for message in messages[1+j*2:1+j*2+2]:    #Q,Aの順で表示
         speaker = "🙂"
         if message["role"]=="assistant":
             speaker="🤖"
 
-        st.write(speaker + ": " + message["content"])
+        st.write(speaker + "["+ str(j+1) +"]: " + message["content"])
