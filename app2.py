@@ -6,6 +6,12 @@ import time
 # Streamlit Community Cloudの「Secrets」からOpenAI API keyを取得
 openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 
+st.set_page_config(
+    page_title="ChatGPTタロット占い",
+    page_icon="⚜️"
+)
+st.header("⚜️ChatGPTタロット占い⚜️")
+
 system_prompt = """
 このスレッドの全ての質問に対して以下のルールに厳格に従って答えてください。
 1. タロットカードの大アルカナをランダムに選択してください
