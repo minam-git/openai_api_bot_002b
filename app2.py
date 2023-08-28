@@ -10,7 +10,7 @@ st.set_page_config(
     page_title="ChatGPTタロット占い",
     page_icon="⚜️"
 )
-st.header("⚜️ChatGPTタロット占い⚜️")
+#st.header("⚜️ChatGPTタロット占い⚜️")
 
 system_prompt = """
 このスレッドの全ての質問に対して以下のルールに厳格に従って答えてください。
@@ -62,9 +62,9 @@ def communicate():
 # ユーザーインターフェイスの構築
 #st.title("My AI Assistant")
 #st.write("ChatGPT APIを使ったチャットボットです。")
-typing_write("ChatGPTタロット占い", intervalTime=0.05, size=1)
+typing_write("⚜️ChatGPTタロット占い⚜️", intervalTime=0.05, size=1)
 
-user_input = st.text_input("占いたいことを入力して下さい。(個人情報の入力は禁止)", key="user_input", on_change=communicate)
+user_input = st.text_input("占いたいことは？　(個人情報や機密情報の入力禁止)", key="user_input", on_change=communicate)
 
 if st.session_state["messages"]:
     messages = st.session_state["messages"]
